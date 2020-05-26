@@ -20,7 +20,10 @@ services:
 
   hydra:
     image: oryd/hydra:v1.0.8
-    command: serve all --dangerous-force-http
+    command: "serve all \
+        --dangerous-force-http \
+        --dangerous-allow-insecure-redirect-urls=http://3.21.3.29:4080/authentication/callback
+      "
     depends_on:
       - hydra-migrate
       - postgres
